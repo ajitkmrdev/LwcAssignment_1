@@ -1,0 +1,31 @@
+<template>
+    <lightning-card>
+        <lightning-layout>
+            <lightning-layout-item>
+        <lightning-input label="Filter Text" value={varFilterText} onchange={handleOnChange}></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item padding="around-small">
+         
+        <lightning-button label="Filter Data" onclick={handleFilter} ></lightning-button>
+        
+        </lightning-layout-item>
+        </lightning-layout>
+       <template if:true={allAccountListEnable}>
+        <template if:true= {accountListParent}>
+            <template for:each={accountListParent} for:item= 'acc'>
+                <li key={acc.Id}>
+                    <div class="slds-box">
+                    {acc.Name}
+                </div>
+                </li>
+                
+            </template>
+        </template>
+    </template>
+    <template if:true={filterEnable}>
+        <div class="slds-box">
+         {newNameList}
+        </div>
+    </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,20 @@
+<template>
+   <lightning-card>
+    <lightning-layout>
+        <lightning-layout-item padding="around-small">
+        <lightning-input name="varName" label="Name" value={varName} onchange={handleChange} ></lightning-input>
+        <lightning-input name="VarNumber" label="Records #" value={VarNumber} onchange={handleChange}></lightning-input>
+         <div class="slds-p-top_medium"> 
+        <lightning-button label="Search"  variant="brand"  onclick={handleSearch}></lightning-button>
+         </div>
+    </lightning-layout-item>
+
+
+    <lightning-layout-item padding="around-small">
+        <c-child-search-component
+        account-list-parent={accountsList}
+        ></c-child-search-component>
+    </lightning-layout-item>
+</lightning-layout>
+</lightning-card> 
+</template>
