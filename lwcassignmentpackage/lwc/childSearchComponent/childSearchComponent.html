@@ -1,31 +1,34 @@
 <template>
-    <lightning-card>
-        <lightning-layout>
-            <lightning-layout-item>
+<lightning-card>
+    <lightning-layout>
+        <!--Filter box-->
+        <lightning-layout-item>
         <lightning-input label="Filter Text" value={varFilterText} onchange={handleOnChange}></lightning-input>
-    </lightning-layout-item>
-    <lightning-layout-item padding="around-small">
-         
-        <lightning-button label="Filter Data" onclick={handleFilter} ></lightning-button>
-        
         </lightning-layout-item>
-        </lightning-layout>
-       <template if:true={allAccountListEnable}>
-        <template if:true= {accountListParent}>
-            <template for:each={accountListParent} for:item= 'acc'>
-                <li key={acc.Id}>
-                    <div class="slds-box">
-                    {acc.Name}
-                </div>
-                </li>
-                
-            </template>
+        <!--Filter button-->
+        <lightning-layout-item padding="around-small">
+        <lightning-button label="Filter Data" onclick={handleFilter} ></lightning-button>
+        </lightning-layout-item>
+
+    </lightning-layout>
+    
+   <template if:true={allAccountListEnable}>
+       <!--Block to show all the account list fethed without filter-->
+    <template if:true= {accountListParent}>
+        <template for:each={accountListParent} for:item= 'acc'>
+            <li key={acc.Id}>
+                <div class="slds-box">
+                {acc.Name}
+            </div>
+            </li>
         </template>
     </template>
-    <template if:true={filterEnable}>
-        <div class="slds-box">
-         {newNameList}
-        </div>
-    </template>
-    </lightning-card>
+</template>
+    <!--block to show account list after filter button is clicked-->
+<template if:true={filterEnable}>
+    <div class="slds-box">
+     {newNameList}
+    </div>
+</template>
+</lightning-card>
 </template>
