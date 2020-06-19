@@ -7,10 +7,11 @@ export default class ChildSearchComponent extends LightningElement {
     @track varFilterText;
     @track filterEnable = false;
     @track allAccountListEnable = true;
-    handleOnChange(event){
+    handleOnChange(event){ //method to capture value from filter text box
         this.varFilterText=event.target.value;
     }
    
+    //method to short account list based on value provided in filter tex box
     handleFilter(){
         this.filterEnable=true;
         this.allAccountListEnable=!this.filterEnable;
